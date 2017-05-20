@@ -15,7 +15,6 @@ class APIClient: NSObject {
     // Make init inaccessible so nothing else can instantiate APIClient using init
     fileprivate override init() {}
    
-    // TODO: Ensure all methods are happening in background thread
     func setBaseUrl(baseUrl url: String) -> Void {
         rkManager = RKObjectManager(baseURL: URL(string: url))
     }
@@ -32,7 +31,7 @@ class APIClient: NSObject {
         }
     }
 
-    func sendAPIRequest(apiPath path: String, queryParams params: Dictionary<String, String>, httpHeaders headers: Dictionary<String, String>, success: @escaping (Array<Any>?) -> Void /*((Dictionary <NSObject, AnyObject>) -> Void)*/, failure: @escaping (Error) -> Void) {
+    func sendAPIRequest(apiPath path: String, queryParams params: Dictionary<String, String>, httpHeaders headers: Dictionary<String, String>, success: @escaping (Array<Any>?) -> Void, failure: @escaping (Error) -> Void) {
         for headersDictionary in headers {
             let httpHeader = headersDictionary.0
             let value = headersDictionary.1
