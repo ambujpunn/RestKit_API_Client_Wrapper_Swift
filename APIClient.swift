@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 class APIClient: NSObject {
     static let sharedInstance = APIClient()
     fileprivate var rkManager: RKObjectManager?
