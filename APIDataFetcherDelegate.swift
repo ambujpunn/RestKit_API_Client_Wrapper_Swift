@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc protocol APIDataFetcherDelegate: class {
+@objc protocol APIDataFetcherDelegate {
     func didFetchData(data: Array<Any>?) -> Void
     func didReturnError(error: Error) -> Void
     @objc optional func didLoadNextPage(data: Array<Any>?) -> Void
